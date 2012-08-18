@@ -11,6 +11,9 @@ function onMessage(request, sender, sendResponse) {
   if (request.sendMetaData) {
     saveEvent(request.sendMetaData);
   }
+  if (request.getMetaData) {
+    sendResponse({getMetaData: events });
+  }
 }
 
 function openTab(url) {
