@@ -1,0 +1,32 @@
+{
+  // Required
+  "name": "Tapestry - browser history",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "minimum_chrome_version": "20",
+  // Recommended
+  "description": "A browser history of open graph objects, pinterest/ masonary style",
+  "icons": {},
+  "default_locale": "en",
+  // Add any of these that you need
+  "background": {
+      "scripts" : [
+          "/js/jquery-1.8.0.js"
+      ]
+  },
+  "content_scripts": [
+      {
+          "match" : "<all_urls>",
+          "js" : [
+              "core.js"
+          ]
+      }
+  ],
+  "permissions": [
+      "<all_urls>",
+      "tabs",
+      "bookmarks",
+      "history",
+      "unlimitedStorage"
+  ]
+}
