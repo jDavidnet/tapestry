@@ -1,5 +1,19 @@
+var events = [];
 function init(){
     chrome.browserAction.onClicked.addListener( openTab('html/tapestry.html') );
+    events = loadLocal();
+}
+
+chrome.extension.onMessage.addListener(onMessage);
+
+function onMessage(request, sender, sendResponse) {
+  console.log('EVENT message contentScript', request);
+  if (request.sendMetaData) {
+    saveEvent(request.sendMetaData);
+  }
+  if (request.getMetaData) {
+    sendResponse({getMetaData: events });
+  }
 }
 
 function openTab(url) {
@@ -38,4 +52,15 @@ function getCanonicalData(data){
     return cdata;
 }
 getCanonicalData();
+
+function loadLocal() {
+  var string = localStorage.getItem('events') || '[]';
+  return JSON.parse(string);
+}
+
+function saveEvent(newEvent) {
+  events.push(newEvent);
+  // localStorage.setItem('events', JSON.stringify(events));
+}
+
 init();
