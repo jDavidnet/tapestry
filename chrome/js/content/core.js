@@ -34,7 +34,7 @@ $(document).ready(function(){
      });
      
      console.log('tapestry-meta', data);
-     console.log('tapestry-meta', JSON.stringify(data) );
+     //console.log('tapestry-meta', JSON.stringify(data) );
      sendMetaData(data);
 });
 
