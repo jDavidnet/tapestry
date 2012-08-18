@@ -5,13 +5,13 @@
   "minimum_chrome_version": "20",
   "description": "A browser history of open graph objects, pinterest/ masonary style",
   "icons": {
-    "16": "image/unicorn.png",
-    "48": "image/unicorn.png",
-    "128": "image/unicorn.png"
+    "16": "images/unicorn.png",
+    "48": "images/unicorn.png",
+    "128": "images/unicorn.png"
   },
   "default_locale": "en",
   "browser_action": {
-    "default_icon": "image/unicorn.png",
+    "default_icon": "images/unicorn.png",
     "default_title": "Open Tapestry"
   },
   "background": {
