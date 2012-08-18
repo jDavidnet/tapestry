@@ -6,7 +6,6 @@ function init(){
 
 chrome.extension.onMessage.addListener(onMessage);
 
-
 function onMessage(request, sender, sendResponse) {
   console.log('EVENT message contentScript', request);
   if (request.sendMetaData) {
