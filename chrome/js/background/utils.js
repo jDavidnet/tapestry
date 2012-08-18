@@ -15,3 +15,21 @@ function renderTemplate(template, data){
     }
     return html;
 }
+
+function getLocalFile(path){
+    var xhr = new XMLHttpRequest(), resp;
+    
+    xhr.open("GET", chrome.extension.getURL("path"), false);
+    xhr.send();
+    //resp = JSON.parse(xhr.responseText);
+    resp = xhr.responseText;
+    console.log('getLocalFile', resp);
+    return resp;
+}
+
+function fetchTemplate(templateName){
+  var path = 'templates/' + templateName + '.html';
+  var template = getLocalFile(path);
+  console.log('getTemplate', template);
+  return template;
+}
