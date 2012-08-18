@@ -10,6 +10,7 @@
     "128": "image/unicorn.png"
   },
   "default_locale": "en",
+  "browser_action": {},
   "background": {
       "scripts" : [
           "js/lib/jquery-1.8.0.js",
