@@ -1,3 +1,5 @@
+
+
 chrome.extension.sendMessage({getMetaData: true}, function(response) {
 
   ogObjects = response.getMetaData;
@@ -6,9 +8,6 @@ chrome.extension.sendMessage({getMetaData: true}, function(response) {
  
   var ogObject = null;
   
-  
-   
-   
   for(var i = 0; i<ogObjects.length; i++){
   
     ogObject = ogObjects[i];
