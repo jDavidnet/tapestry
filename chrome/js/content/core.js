@@ -1,7 +1,13 @@
 console.log('start tapestry');
 
 $(document).ready(function(){
-    var data = {meta:{},links:{}};
+    var data = {
+      meta:{},
+      links:{},
+      href:window.location.href, 
+      hostname:window.location.hostname
+    };
+    
      $('meta[property][content]').each(function(index, element){
          var $tag = $(element);
          //console.log('each', arguments);
