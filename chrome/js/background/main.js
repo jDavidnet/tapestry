@@ -51,7 +51,6 @@ function getCanonicalData(data){
     console.log('getCanonicalData - return', cdata);
     return cdata;
 }
-getCanonicalData();
 
 function loadLocal() {
   var string = localStorage.getItem('events') || '[]';
@@ -59,7 +58,7 @@ function loadLocal() {
 }
 
 function saveEvent(newEvent) {
-  events.push(newEvent);
+  events.push(getCanonicalData(newEvent));
   // localStorage.setItem('events', JSON.stringify(events));
 }
 
