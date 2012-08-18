@@ -14,7 +14,9 @@
   },
   "content_scripts": [
       {
-          "matches" : "<all_urls>",
+          "matches" : [
+              "<all_urls>"
+          ],
           "js" : [
               "js/lib/jquery-1.8.0.js",
               "js/content/core.js"
