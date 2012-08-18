@@ -4,7 +4,11 @@
   "manifest_version": 2,
   "minimum_chrome_version": "20",
   "description": "A browser history of open graph objects, pinterest/ masonary style",
-  "icons": {},
+  "icons": {
+    "16": "image/unicorn.png",
+    "48": "image/unicorn.png",
+    "128": "image/unicorn.png"
+  },
   "default_locale": "en",
   "background": {
       "scripts" : [
