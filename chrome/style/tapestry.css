@@ -2,6 +2,27 @@ body{
   background-color: #f8f8f8;
 }
 
+a{
+  color:#777;
+}
+a:hover{
+  color: #333;
+  text-decoration: none;
+}
+
+h4{
+  -webkit-transition: all .1s ease-in-out;
+}
+
+.ogBrick.ogText:hover a{
+  color: #333;
+}
+
+.ogBrick.ogText:hover h4{
+  color: #333;
+  background: rgba(255, 255, 255, .8);
+}
+
 .ogBrick{
   display: inline-block;
   overflow: hidden;
