@@ -39,7 +39,7 @@ $(document).ready(function(){
          data.links[name] = content;
      });
      
-     console.log('tapestry-meta', data);
+     // console.log('tapestry-meta', data);
      //console.log('tapestry-meta', JSON.stringify(data) );
      sendMetaData(data);
 });
@@ -48,7 +48,7 @@ function sendMetaData(data, callback, error){
   chrome.extension.sendMessage({
     sendMetaData: data
   }, function(response) {
-    console.log('sendMetaData', response);
+    // console.log('sendMetaData', response);
     if(typeof(callback) == 'function'){
         callback.apply(this, arguments);
     }

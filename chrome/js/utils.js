@@ -18,7 +18,7 @@ function renderTemplate(template, data, defaults){
         regex = new RegExp('{{'+name+'}}', 'gi');
         _template = _template.replace(regex, value);
     }
-    console.log('template', _template);
+    // console.log('template', _template);
     return _template;
 }
 
@@ -29,13 +29,13 @@ function getLocalFile(path){
     xhr.send();
     //resp = JSON.parse(xhr.responseText);
     resp = xhr.responseText;
-    console.log('getLocalFile', resp);
+    // console.log('getLocalFile', resp);
     return resp;
 }
 
 function fetchTemplate(templateName){
   var path = 'templates/' + templateName + '.html';
   var template = getLocalFile(path);
-  console.log('getTemplate', template);
+  // console.log('getTemplate', template);
   return template;
 }
