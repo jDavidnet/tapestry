@@ -1,3 +1,6 @@
 .ogBrick{
   display: inline-block;
+  width:278px;
+  overflow: hidden;
+  
 }
