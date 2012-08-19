@@ -64,6 +64,7 @@
         <copy todir="build/templates"><fileset dir="templates"/></copy>
         <copy todir="build/style"><fileset dir="style"/></copy>
         <copy todir="build/images"><fileset dir="images"/></copy>
+        <copy todir="build/img"><fileset dir="img"/></copy>
         <copy todir="build/_locales"><fileset dir="_locales"/></copy>
         <copy todir="build/js"><fileset dir="js"/></copy>
         <copy file="manifest.json" todir="build/"/>

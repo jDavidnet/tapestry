@@ -1,6 +1,6 @@
 {
   "name": "Tapestry - an Open Graph Browser History",
-  "version" : "0.0.15",
+  "version" : "0.0.18",
   "manifest_version": 2,
   "minimum_chrome_version": "20",
   "description": "Visually displays a History of your browser's Open Graph data.",
