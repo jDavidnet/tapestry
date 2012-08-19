@@ -29,37 +29,35 @@ $(document).ready(function(){
   
   chrome.extension.sendMessage({getMetaData: true}, handleMetaData);
   
-  $('#filterbutton').click(function() {
-    
-      var filter =   $('#filter').val();
-
-      chrome.extension.sendMessage({getMetaData: true}, function(response){
-
-        $('#content').children().remove();
-
-        var ogObjects = response.getMetaData;
-  
-        var filteredObjects =[];
-
-        ogObjects.forEach(function(obj){
-          console.log(obj);
-          if(obj.title.indexOf(filter) > -1 || obj.url.indexOf(filter) > -1 || obj.description.indexOf(filter) > -1 ){
-          filteredObjects.push(obj);
-          }
-        });
-      console.log(filteredObjects); 
-      response.getMetaData = filteredObjects;
-   
-      handleMetaData(response);
-
-      });
-
-
-
-
-  });
+  $('#filterbutton').click(filter);
+  // To slow
+  // $('#filter').keypress(filter);
    
 })
+
+function filter() {
+    var filter =   $('#filter').val();
+
+    chrome.extension.sendMessage({getMetaData: true}, function(response){
+
+      $('#content').children().remove();
+
+      var ogObjects = response.getMetaData;
+  
+      var filteredObjects =[];
+
+      ogObjects.forEach(function(obj){
+        console.log(obj);
+        if(obj.title.indexOf(filter) > -1 || obj.url.indexOf(filter) > -1 || obj.description.indexOf(filter) > -1 ){
+        filteredObjects.push(obj);
+        }
+      });
+    console.log(filteredObjects); 
+    response.getMetaData = filteredObjects;
+   
+    handleMetaData(response);
+    });
+}
 
 function hideMissingImage(){
   var $img = $(this);
