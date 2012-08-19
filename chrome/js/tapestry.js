@@ -81,6 +81,10 @@ function handleMetaData(response) {
     'blockquote-class':''
   };
     
+    
+  if (ogObjects.length > 0) {
+    $container.empty();
+  }
   // console.log('image_template', img_template);
   ogObjects.reverse();
   for(var i = 0, ol = ogObjects.length; i < ol; i++){
