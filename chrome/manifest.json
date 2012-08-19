@@ -1,9 +1,9 @@
 {
-  "name": "Tapestry - browser history",
-  "version" : "0.0.11",
+  "name": "Tapestry - an Open Graph Browser History",
+  "version" : "0.0.13",
   "manifest_version": 2,
   "minimum_chrome_version": "20",
-  "description": "A browser history of open graph objects, pinterest/ masonary style",
+  "description": "Visually displays a History of your browser's Open Graph data.",
   "icons": {
     "16": "images/unicorn.png",
     "48": "images/unicorn.png",
