@@ -94,8 +94,6 @@ margin: 2px;
   border-radius: 5px;
 }
 
-
-
 .brickImage img {
   visibility: hidden;
   min-width: 220px;
@@ -108,4 +106,12 @@ margin: 2px;
 
 .hidden-blockquote {
   display: none;
+}
+
+.input-append { 
+  margin-top: 25px;
+}
+
+.page-header {
+  padding-left: 25px;
 }

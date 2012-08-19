@@ -20,7 +20,7 @@ $(document).ready(function(){
     var $target = $(event.target);
     var url = $target.closest('.ogBrick').data('url');
     if ($target.hasClass('share')) {
-      chrome.tabs.create({ url: $target.data('share') + url });
+      window.open($target.data('share') + url, 'share', "resizable=1,location=1,width=600,height=400");
     } else {
       chrome.tabs.create({ url: url });
     }
@@ -29,7 +29,35 @@ $(document).ready(function(){
   
   chrome.extension.sendMessage({getMetaData: true}, handleMetaData);
   
+  $('#filterbutton').click(filter);
+  // To slow
+  // $('#filter').keypress(filter);
+   
 })
+
+function filter() {
+    var filter =   $('#filter').val();
+
+    chrome.extension.sendMessage({getMetaData: true}, function(response){
+
+      $('#content').children().remove();
+
+      var ogObjects = response.getMetaData;
+  
+      var filteredObjects =[];
+
+      ogObjects.forEach(function(obj){
+        console.log(obj);
+        if(obj.title.indexOf(filter) > -1 || obj.url.indexOf(filter) > -1 || obj.description.indexOf(filter) > -1 ){
+        filteredObjects.push(obj);
+        }
+      });
+    console.log(filteredObjects); 
+    response.getMetaData = filteredObjects;
+   
+    handleMetaData(response);
+    });
+}
 
 function hideMissingImage(){
   var $img = $(this);
