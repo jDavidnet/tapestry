@@ -2,7 +2,6 @@ var events = [];
 
 function init(){
     chrome.browserAction.onClicked.addListener( openTab('html/tapestry.html') );
-    events = loadLocal();
 }
 
 chrome.extension.onMessage.addListener(onMessage);
@@ -78,8 +77,10 @@ function loadLocal() {
 }
 
 function saveEvent(newEvent) {
-  events.push(getCanonicalData(newEvent));
+  newEvent = getCanonicalData(newEvent);
+  events.push(newEvent);
   // localStorage.setItem('events', JSON.stringify(events));
+  html5rocks.indexedDB.addEvent(newEvent);
 }
 
 init();
