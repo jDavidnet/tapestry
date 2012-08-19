@@ -4,7 +4,7 @@
  * @data shallow json object
  */
 function renderTemplate(template, data, defaults){
-    console.log('template', data);
+    //console.log('template', data);
     var name, value, _template = (template || '').toString();
     var regex, d;
     

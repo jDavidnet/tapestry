@@ -1,12 +1,29 @@
 var img_template = fetchTemplate('image');
 var txt_template = fetchTemplate('text');
 
-chrome.extension.sendMessage({ getMetaData: true }, handleMetaData);
+$(document).ready(function(){
 
-$('.js-delete-events').click(function() {
-  chrome.extension.sendMessage({ deleteAllEvents: true });
-  var $container = $('#content').empty();
+  $('body').delegate('img', 'error', function(){
+    console.log('image load error', this);
+  });
+  
+  $('img').live('error', function(){
+    console.log('image load error2', this);
+  });
+
+  $('.js-delete-events').click(function() {
+    chrome.extension.sendMessage({deleteAllEvents: true});
+    var $container = $('#content').empty();
+  });
+  
+  chrome.extension.sendMessage({getMetaData: true}, handleMetaData);
+  
 })
+
+function hideMissingImage(){
+  var $img = $(this);
+  $img.addClass('missing');
+}
 
 function handleMetaData(response) {
   // console.log('getMetaData', arguments );
@@ -39,7 +56,12 @@ function handleMetaData(response) {
     }
     //$container.append('<div class="ogBrick"><img src="'+ ogObject.image_url+'" alt="" />	</div>');
     // console.log('html', html);
-    $container.append(html);
+    
+    var $html = $(html);
+    
+    $html.find('img').error(hideMissingImage);
+    
+    $container.append($html);
   }    
 
   $container.masonry({

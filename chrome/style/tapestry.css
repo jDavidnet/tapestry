@@ -1,3 +1,7 @@
+body{
+  background-color: #f8f8f8;
+}
+
 .ogBrick{
   display: inline-block;
   overflow: hidden;
@@ -17,12 +21,28 @@
   -webkit-transition: all .1s ease-in-out;
 }
 
+.thumb.missing{
+  visibility: hidden;
+}
+
+.favicon.missing{
+  display: none;
+}
+
+.brickImage{
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #f0f0f0;
+}
+
 .ogBrick:hover .detail{
   height: 4em;
   margin-bottom: 20px;
 }
 
 .brickImage img {
+  visibility: hidden;
   min-width: 220px;
   min-height: 140px;
 }
