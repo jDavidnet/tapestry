@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<project basedir="." default="compile">
+    
+    
+
+    <target name="getExterns">
+        <get dest="externs/" usetimestamp="true">
+            <url url="http://closure-compiler.googlecode.com/svn/trunk/contrib/externs/webkit_console.js"/>
+            <url url="http://closure-compiler.googlecode.com/svn/trunk/contrib/externs/jquery-1.7.js"/>
+            <url url="http://closure-compiler.googlecode.com/svn/trunk/contrib/externs/chrome_extensions.js"/>
+            <url url="http://plovr.googlecode.com/hg/closure/closure-compiler/contrib/externs/json.js"/>
+        </get>
+    </target>
+    
+    <target name="clean"
+            description="cleans the /build directory"
+            depends="">
+        <mkdir dir="build"/>
+        <delete includeemptydirs="true">
+            <fileset dir="build" includes="**/*"/>
+        </delete>
+    </target>
+    
+    <target name="getLibs"
+            description="cleans the /build directory"
+            depends="">
+        <get dest="js/lib/" usetimestamp="true">
+            <!-- url url="https://raw.github.com/janl/mustache.js/58c91c8c7d193b2c6e3dc3ebc4eb136a9bf1ea9f/mustache.js"/ -->
+            
+            <url url="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.js"/>
+            
+            <!-- url url="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"/ -->
+            
+            <!-- url url="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject_src.js"/ -->
+        </get>
+    </target>
+    
+    <target name='incrementMinorVersion'
+            description="increments the minor version of the app">
+        <propertyfile
+            file="build.properties"
+            comment="build properties">
+            
+            <entry  key="build.date" type="date" value="now"/>
+            <entry  key="build.date.formated" type="date" value="now" pattern="DDD HH:mm"/>
+            <entry  key="build.version.app" type="int" default="0"/>
+            <entry  key="build.version.major" type="int" default="0"/>
+            <entry  key="build.version.minor" type="int" default="0" operation="+"/>
+        </propertyfile>
+        <property file="build.properties"/>
+        <replaceregexp byline="true">
+            <regexp pattern="&quot;version&quot;\s*:\s*&quot;([0-9]*)\.([0-9]*)\.([0-9]*)&quot;"/>
+            <substitution expression="&quot;version&quot; : &quot;${build.version.app}.${build.version.major}.${build.version.minor}&quot;"/>
+            <fileset dir="${basedir}">
+                <include name="manifest.json"/>
+            </fileset>
+        </replaceregexp>
+    </target>
+   
+    
+    <target name='copy-files'
+            description="compiles the background scripts">
+        <copy todir="build/html"><fileset dir="html"/></copy>
+        <copy todir="build/templates"><fileset dir="templates"/></copy>
+        <copy todir="build/style"><fileset dir="style"/></copy>
+        <copy todir="build/images"><fileset dir="images"/></copy>
+        <copy todir="build/_locales"><fileset dir="_locales"/></copy>
+        <copy todir="build/js/lib"><fileset dir="js/lib"/></copy>
+        <copy file="manifest.json" todir="build/"/>
+            
+    </target>
+    
+    <!-- inspired by url:http://shawn.co/words/2011/08/ant-script-to-package-chrome-extensions-for-publishing/ -->
+    
+
+  <target name="compile"
+          description="Generate a /build directory for production testing, and a zip file to upload."
+          depends="incrementMinorVersion,clean">
+            
+    <antcall target="copy-files"></antcall>
+    
+    
+     <zip destfile="tapestry.zip"
+       basedir="build"
+       update="true"
+       excludes="*.zip"
+        />
+    
+  </target>
+
+</project>
