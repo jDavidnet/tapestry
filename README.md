@@ -1,4 +1,4 @@
 tapestry
 ========
 
-browser history meet's open graph tags and pinterest.
+Chrome browser history meet's open graph tags and pinterest.
