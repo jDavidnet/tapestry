@@ -48,6 +48,8 @@ function handleMetaData(response) {
     if (!ogObject.description) {
       ogObject['blockquote-class'] = 'hidden-blockquote';
     }
+    console.log(ogObject);
+    ogObject.timestamp = relativeDate(ogObject.id); 
     
     if (ogObject.image_url && ogObject.image_url.length > 0) {
       var html = renderTemplate(img_template, ogObject, defaults);
