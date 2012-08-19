@@ -15,6 +15,10 @@ $(document).ready(function(){
          var content = $tag.attr('content')
          data.meta[name] = content;
      });
+     
+     data.meta['head.title'] = $('title').text();
+     data.meta['body.h1'] = $('h1').text();
+     
      $('meta[name][value]').each(function(index, element){
          var $tag = $(element);
          //console.log('each', arguments);

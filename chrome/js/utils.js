@@ -18,6 +18,8 @@ function renderTemplate(template, data, defaults){
         regex = new RegExp('{{'+name+'}}', 'gi');
         _template = _template.replace(regex, value);
     }
+    
+     _template = _template.replace(/{{[\w_-]*?}}/gi, '&nbsp;');
     // console.log('template', _template);
     return _template;
 }

@@ -4,6 +4,6 @@
   padding-bottom: 20px;
 }
 
-.brickImage {
-  
+.brickImage img {
+  min-width: 300px;
 }

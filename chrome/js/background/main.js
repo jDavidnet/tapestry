@@ -57,8 +57,8 @@ function getCanonicalData(data){
     var cdata = {
         'url': data.href,
         'description' : getPriorityData( ['og:description', 'description'], data.meta ),
-        'title' : getPriorityData( ['og:title', 'title'], data.meta ),
-        'image_url' : getPriorityData( ['og:image', 'thumbnail_url'], data.meta ) || data['large_image'],
+        'title' : getPriorityData( ['og:title', 'title', 'head.title', 'body.h1'], data.meta ),
+        'image_url' : getPriorityData( ['og:image', 'thumbnail_url'], data.meta ) || (data['large_image']||{href:''}).href,
         'type' : getPriorityData( ['og:type'], data.meta ),
         'favicon' : getCanonicalIcon(data)
     };
