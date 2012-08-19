@@ -42,6 +42,11 @@ function handleMetaData(response) {
     $container.append(html);
   }    
 
+  $container.masonry({
+    itemSelector : '.ogBrick'
+  });
+
+
   $container.imagesLoaded( function(){
     $container.masonry({
       itemSelector : '.ogBrick'

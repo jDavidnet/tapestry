@@ -24,6 +24,7 @@
 
 .brickImage img {
   min-width: 220px;
+  min-height: 140px;
 }
 
 .container {
