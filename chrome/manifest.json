@@ -1,6 +1,6 @@
 {
   "name": "Tapestry - browser history",
-  "version" : "0.0.10",
+  "version" : "0.0.11",
   "manifest_version": 2,
   "minimum_chrome_version": "20",
   "description": "A browser history of open graph objects, pinterest/ masonary style",
