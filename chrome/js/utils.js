@@ -5,7 +5,7 @@
  */
 function renderTemplate(template, data, defaults){
     console.log('template', data);
-    var name, value, _template = template.toString();
+    var name, value, _template = (template || '').toString();
     var regex, d;
     
     for(name in data){

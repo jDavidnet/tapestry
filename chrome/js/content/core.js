@@ -48,8 +48,8 @@ $(document).ready(function(){
          var images = $('img[src]:visible').filter(function(){
            var $img = $(this);
 
-           if($img.width() <= 100){ return false; } 
-           if($img.height() <= 100){ return false; }
+           if($img.width() <= 50){ return false; } 
+           if($img.height() <= 50){ return false; }
            
            img2.push({
              width:$img.width(),

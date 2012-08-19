@@ -7,13 +7,18 @@
 
 .ogBrick .detail{
   position: absolute;
-  background: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, .8);
   top: 0px;
   padding: 5px;
   right: 0px;
   left: 0px;
-  height: 2.5em;
+  height: 1.3em;
   overflow: hidden;
+  -webkit-transition: all .1s ease-in-out;
+}
+
+.ogBrick:hover .detail{
+  height: 4em;
 }
 
 .brickImage img {
