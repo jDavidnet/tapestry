@@ -4,22 +4,21 @@
  * @data shallow json object
  */
 function renderTemplate(template, data){
-    var html = '';
-    var name, value;
+    var name, value, _template = template.toString();
     var regex;
     
     for(name in data){
         value = data[name];
         regex = new RegExp('{{'+name+'}}', 'gi');
-        template = template.replace(regex, value);
+        _template = _template.replace(regex, value);
     }
-    return html;
+    return _template;
 }
 
 function getLocalFile(path){
     var xhr = new XMLHttpRequest(), resp;
     
-    xhr.open("GET", chrome.extension.getURL("path"), false);
+    xhr.open("GET", chrome.extension.getURL(path), false);
     xhr.send();
     //resp = JSON.parse(xhr.responseText);
     resp = xhr.responseText;
