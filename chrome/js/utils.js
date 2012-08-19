@@ -3,13 +3,18 @@
  * @param template html string
  * @data shallow json object
  */
-function renderTemplate(template, data){
+function renderTemplate(template, data, defaults){
     console.log('template', data);
     var name, value, _template = template.toString();
-    var regex;
+    var regex, d;
     
     for(name in data){
-        value = data[name];
+        d = defaults[name] || '';
+        value = data[name] || d;
+        if(value == ' '){
+          value = d;
+        }
+        
         regex = new RegExp('{{'+name+'}}', 'gi');
         _template = _template.replace(regex, value);
     }
