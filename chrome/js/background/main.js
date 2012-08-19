@@ -14,6 +14,10 @@ function onMessage(request, sender, sendResponse) {
   if (request.getMetaData) {
     sendResponse({getMetaData: events });
   }
+  if (request.deleteAllEvents) {
+    deleteAllEvents();
+  }
+
 }
 
 function openTab(url) {
@@ -65,6 +69,14 @@ function getCanonicalData(data){
     
     console.log('getCanonicalData - return', cdata);
     return cdata;
+}
+
+function deleteAllEvents() {
+  events.forEach(function(event, index, array){
+    console.log(event.id);
+    html5rocks.indexedDB.deleteEvent(event.id);
+  });
+  events = [];
 }
 
 //function loadLocal() {
