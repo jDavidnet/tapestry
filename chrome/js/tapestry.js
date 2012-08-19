@@ -7,7 +7,7 @@ chrome.extension.sendMessage(
   function(response) {
     console.log('getMetaData', arguments );
     var ogObjects = response.getMetaData;
-    var $container = $('#container');
+    var $container = $('#content');
     var ogObject = null;
     var html = '';
     var defaults = {
