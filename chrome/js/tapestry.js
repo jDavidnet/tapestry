@@ -16,6 +16,17 @@ $(document).ready(function(){
     var $container = $('#content').empty();
   });
   
+  $('#content').on('click', '.ogBrick', function(event) {
+    var $target = $(event.target);
+    var url = $target.closest('.ogBrick').data('url');
+    if ($target.hasClass('share')) {
+      chrome.tabs.create({ url: $target.data('share') + url });
+    } else {
+      chrome.tabs.create({ url: url });
+    }
+    return false;
+  });
+  
   chrome.extension.sendMessage({getMetaData: true}, handleMetaData);
   
 })
