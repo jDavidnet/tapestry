@@ -20,7 +20,7 @@ $(document).ready(function(){
     var $target = $(event.target);
     var url = $target.closest('.ogBrick').data('url');
     if ($target.hasClass('share')) {
-      chrome.tabs.create({ url: $target.data('share') + url });
+      window.open($target.data('share') + url, 'share', "resizable=1,location=1,width=600,height=400");
     } else {
       chrome.tabs.create({ url: url });
     }
