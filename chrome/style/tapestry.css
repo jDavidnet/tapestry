@@ -2,6 +2,18 @@
   display: inline-block;
   overflow: hidden;
   padding-bottom: 20px;
+  position:relative;
+}
+
+.ogBrick .detail{
+  position: absolute;
+  background: rgba(255, 255, 255, .5);
+  top: 0px;
+  padding: 5px;
+  right: 0px;
+  left: 0px;
+  height: 2.5em;
+  overflow: hidden;
 }
 
 .brickImage img {

@@ -60,8 +60,8 @@ function getCanonicalData(data){
     var data =  data || JSON.parse('{"meta":{"og:url":"http://www.youtube.com/watch?v=Oiu6rI5k3oI","og:title":"Def Con: 20 years of hacker evolution","og:description":"Every year for the last two decades, the information security community has descended upon Las Vegas to trade knowledge, sharpen skills, and challenge author...","og:type":"video","og:image":"http://i4.ytimg.com/vi/Oiu6rI5k3oI/mqdefault.jpg","og:video":"http://www.youtube.com/v/Oiu6rI5k3oI?version=3&autohide=1","og:video:type":"application/x-shockwave-flash","og:video:width":"1920","og:video:height":"1080","og:site_name":"YouTube","fb:app_id":"87741124305","twitter:player:width":"1920","twitter:player:height":"1080","twitter:card":"player","twitter:site":"@youtube","twitter:player":"https://www.youtube.com/embed/Oiu6rI5k3oI"},"links":{"search":"http://www.youtube.com/opensearch?locale=en_US","icon":"http://s.ytimg.com/yt/favicon-vfldLzJxy.ico","shortcut icon":"http://s.ytimg.com/yt/favicon-vfldLzJxy.ico","canonical":"/watch?v=Oiu6rI5k3oI","alternate":"http://www.youtube.com/oembed?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DOiu6rI5k3oI&format=xml","shortlink":"http://youtu.be/Oiu6rI5k3oI","stylesheet":"http://s.ytimg.com/yt/cssbin/www-core-vflwHDG3u.css"}}');
     var cdata = {
         'url': data.href,
-        'description' : getPriorityData( ['og:description', 'description'], data.meta ),
-        'title' : getPriorityData( ['og:title', 'title', 'head.title', 'body.h1'], data.meta ),
+        'description' : getPriorityData( ['og:description', 'description', 'body.h1'], data.meta ),
+        'title' : getPriorityData( ['og:title', 'title', 'head.title' ], data.meta ),
         'image_url' : getPriorityData( ['og:image', 'thumbnail_url'], data.meta ) || (data['large_image']||{href:''}).href,
         'type' : getPriorityData( ['og:type'], data.meta ),
         'favicon' : getCanonicalIcon(data)
