@@ -109,3 +109,7 @@ margin: 2px;
 .hidden-blockquote {
   display: none;
 }
+
+.input-append button.add-on { 
+  height: inherit !important;
+}
