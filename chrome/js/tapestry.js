@@ -18,6 +18,9 @@ chrome.extension.sendMessage(
     
     for(var i = 0, ol = ogObjects.length; i < ol; i++){
       ogObject = ogObjects[i];
+      if (ogObject.description && ogObject.description.length > 120) {
+        ogObject.description = ogObject.description.substring(0, 120) + '...';
+      }
       var html = renderTemplate(img_template, ogObject, defaults);
       //$container.append('<div class="ogBrick"><img src="'+ ogObject.image_url+'" alt="" />	</div>');
       console.log('html', html);

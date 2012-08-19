@@ -1,6 +1,9 @@
 .ogBrick{
   display: inline-block;
-  width:278px;
   overflow: hidden;
-  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.brickImage {
+  
 }
