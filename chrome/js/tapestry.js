@@ -31,7 +31,11 @@ $(document).ready(function(){
   
   $('#filterbutton').click(filter);
   // To slow
-  // $('#filter').keypress(filter);
+  $('#filter').keypress(function(event) {
+    if(event.which == 13) {
+      filter();
+    }
+  });
    
 })
 
