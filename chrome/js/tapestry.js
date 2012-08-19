@@ -29,30 +29,30 @@ $(document).ready(function(){
   
   chrome.extension.sendMessage({getMetaData: true}, handleMetaData);
   
-  $('#filterbutton').click(function(){
+  $('#filterbutton').click(function() {
     
-  var filter =   $('#filter').val();
+      var filter =   $('#filter').val();
 
-  chrome.extension.sendMessage({getMetaData: true}, function(response){
+      chrome.extension.sendMessage({getMetaData: true}, function(response){
 
-    $('#content').children().remove();
+        $('#content').children().remove();
 
-    var ogObjects = response.getMetaData;
+        var ogObjects = response.getMetaData;
   
-    var filteredObjects =[];
+        var filteredObjects =[];
 
-    ogObjects.forEach(function(obj){
-      console.log(obj);
-      if(obj.title.indexOf(filter) > -1 || obj.url.indexOf(filter) > -1 || obj.description.indexOf(filter) > -1 ){
-      filteredObjects.push(obj);
-      }
-    });
-  console.log(filteredObjects); 
-  response.getMetaData = filteredObjects;
+        ogObjects.forEach(function(obj){
+          console.log(obj);
+          if(obj.title.indexOf(filter) > -1 || obj.url.indexOf(filter) > -1 || obj.description.indexOf(filter) > -1 ){
+          filteredObjects.push(obj);
+          }
+        });
+      console.log(filteredObjects); 
+      response.getMetaData = filteredObjects;
    
-  handleMetaData(response);
+      handleMetaData(response);
 
-  });
+      });
 
 
 
