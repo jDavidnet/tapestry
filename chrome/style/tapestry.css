@@ -1,7 +1,7 @@
 .ogBrick{
   display: inline-block;
   overflow: hidden;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .brickImage img {
@@ -10,4 +10,8 @@
 
 .container {
   width: 1260px;
+}
+
+.hidden-blockquote {
+  visibility: hidden;
 }
