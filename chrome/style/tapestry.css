@@ -39,7 +39,42 @@ h4{
   left: 0px;
   height: 1.3em;
   overflow: hidden;
-  -webkit-transition: all .1s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+}
+.ogBrick:hover .detail{
+  height: 10em;
+  margin-bottom: 20px;
+}
+
+.social{
+  margin-top: 4px;
+  margin-left: -3px;
+}
+
+.social a {
+display: inline-block;
+width: 32px;
+height: 32px;
+background-color: #ddd;
+border-radius: 5px;
+cursor: pointer;
+margin: 2px;
+}
+
+.social a.facebook{
+  background-image: url('/images/facebook.png');
+}
+
+.social a.pinterest{
+  background-image: url('/images/pinterest.png');
+}
+
+.social a.twitter{
+  background-image: url('/images/twitter-bird-white-on-blue-32px.png');
+}
+
+.social a.gplus{
+  background-image: url('/images/googleplus-32.png');
 }
 
 .thumb.missing{
@@ -55,17 +90,16 @@ h4{
   background-size: contain;
   background-repeat: no-repeat;
   background-color: #f0f0f0;
+  
+  border-radius: 5px;
 }
 
-.ogBrick:hover .detail{
-  height: 4em;
-  margin-bottom: 20px;
-}
+
 
 .brickImage img {
   visibility: hidden;
   min-width: 220px;
-  min-height: 140px;
+  min-height: 120px;
 }
 
 .container {
