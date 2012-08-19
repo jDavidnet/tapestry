@@ -1,5 +1,6 @@
 var img_template = fetchTemplate('image');
 var txt_template = fetchTemplate('text');
+var video_template = fetchTemplate('video');
 
 $(document).ready(function(){
 
@@ -29,6 +30,7 @@ $(document).ready(function(){
   
   chrome.extension.sendMessage({getMetaData: true}, handleMetaData);
   
+
   $('#filterbutton').click(filter);
   // To slow
   $('#filter').keypress(function(event) {
@@ -93,8 +95,9 @@ function handleMetaData(response) {
     }
     console.log(ogObject);
     ogObject.timestamp = relativeDate(ogObject.id); 
-    
-    if (ogObject.image_url && ogObject.image_url.length > 0) {
+    if (ogObject.type && ogObject.type.indexOf("video") > -1){
+      var html = renderTemplate(video_template, ogObject, defaults);
+    } else if (ogObject.image_url && ogObject.image_url.length > 0) {
       var html = renderTemplate(img_template, ogObject, defaults);
     } else {
       var html = renderTemplate(txt_template, ogObject, defaults);
