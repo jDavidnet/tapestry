@@ -12,8 +12,7 @@ chrome.extension.sendMessage({getMetaData: true}, function(response) {
   
     ogObject = ogObjects[i];
 
-    $container.append('<div class="ogBrick"><img src="'+ ogObject.image_url+'" alt="" />	</div>');
-    
+    $container.append.renderTemplate((fetchTemplate('image.html'), ogObject));    
   }    
 
   $container.imagesLoaded( function(){
