@@ -64,7 +64,8 @@ function getCanonicalData(data){
         'title' : getPriorityData( ['og:title', 'title', 'head.title' ], data.meta ),
         'image_url' : getPriorityData( ['og:image', 'thumbnail_url'], data.meta ) || (data['large_image']||{href:''}).href,
         'type' : getPriorityData( ['og:type'], data.meta ),
-        'favicon' : getCanonicalIcon(data)
+        'favicon' : getCanonicalIcon(data),
+        'id' : data.id
     };
     
     console.log('getCanonicalData - return', cdata);
@@ -92,6 +93,7 @@ function deleteAllEvents() {
 //loadLocal();
 
 function saveEvent(newEvent) {
+  newEvent.id = new Date().getTime();
   events.push(newEvent);
   html5rocks.indexedDB.addEvent(newEvent);
 }

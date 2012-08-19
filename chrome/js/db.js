@@ -48,8 +48,6 @@ html5rocks.indexedDB.addEvent = function(data) {
   var db = html5rocks.indexedDB.db;
   var trans = db.transaction(["event"], "readwrite");
   var store = trans.objectStore("event");
-  
-  data.id = new Date().getTime();
   var request = store.put(data);
 
   request.onsuccess = function(e) {
