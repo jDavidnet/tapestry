@@ -4,6 +4,7 @@
  * @data shallow json object
  */
 function renderTemplate(template, data){
+    console.log('template', data);
     var name, value, _template = template.toString();
     var regex;
     
@@ -12,6 +13,7 @@ function renderTemplate(template, data){
         regex = new RegExp('{{'+name+'}}', 'gi');
         _template = _template.replace(regex, value);
     }
+    console.log('template', _template);
     return _template;
 }
 

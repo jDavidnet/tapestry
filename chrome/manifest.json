@@ -17,6 +17,7 @@
   "background": {
       "scripts" : [
           "js/lib/jquery-1.8.0.js",
+          "js/utils.js",
           "js/background/main.js"
       ]
   },
