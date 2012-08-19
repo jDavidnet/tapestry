@@ -12,7 +12,7 @@ function onMessage(request, sender, sendResponse) {
     saveEvent(request.sendMetaData);
   }
   if (request.getMetaData) {
-    sendResponse({getMetaData: events });
+    sendResponse({getMetaData: events.map(getCanonicalData) });
   }
   if (request.deleteAllEvents) {
     deleteAllEvents();
@@ -92,9 +92,7 @@ function deleteAllEvents() {
 //loadLocal();
 
 function saveEvent(newEvent) {
-  newEvent = getCanonicalData(newEvent);
   events.push(newEvent);
-  // localStorage.setItem('events', JSON.stringify(events));
   html5rocks.indexedDB.addEvent(newEvent);
 }
 
