@@ -5,7 +5,8 @@ $(document).ready(function(){
       meta:{},
       links:{},
       href:window.location.href, 
-      hostname:window.location.hostname
+      hostname:window.location.hostname,
+      origin: window.location.origin
     };
     
      $('meta[property][content]').each(function(index, element){
@@ -39,7 +40,7 @@ $(document).ready(function(){
          var $tag = $(element);
          //console.log('each', arguments);
          var name = $tag.attr('rel');
-         var content = $tag.attr('href')
+         var content = $tag.get(0).href;
          data.links[name] = content;
      });
      
@@ -54,7 +55,7 @@ $(document).ready(function(){
            img2.push({
              width:$img.width(),
              height:$img.height(),
-             href:$img.attr('src')
+             href:$img.get(0).src
            });
            
            return this;
