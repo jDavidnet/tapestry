@@ -17,7 +17,13 @@ $(document).ready(function(){
   });
   
   $('#content').on('click', '.ogBrick', function(event) {
-    chrome.tabs.create({ url: $(event.target).closest('.ogBrick').data('url') });
+    var $target = $(event.target);
+    var url = $target.closest('.ogBrick').data('url');
+    if ($target.hasClass('share')) {
+      chrome.tabs.create({ url: $target.data('share') + url });
+    } else {
+      chrome.tabs.create({ url: url });
+    }
     return false;
   });
   
