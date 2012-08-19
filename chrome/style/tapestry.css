@@ -13,5 +13,5 @@
 }
 
 .hidden-blockquote {
-  visibility: hidden;
+  display: none;
 }
