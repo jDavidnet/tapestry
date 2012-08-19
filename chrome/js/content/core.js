@@ -39,9 +39,40 @@ $(document).ready(function(){
          data.links[name] = content;
      });
      
-     // console.log('tapestry-meta', data);
-     //console.log('tapestry-meta', JSON.stringify(data) );
-     sendMetaData(data);
+     setTimeout(function(){
+         var img2 = [];
+         var images = $('img[src]:visible').filter(function(){
+           var $img = $(this);
+
+           if($img.width() <= 100){ return false; } 
+           if($img.height() <= 100){ return false; }
+           
+           img2.push({
+             width:$img.width(),
+             height:$img.height(),
+             href:$img.attr('src')
+           });
+           
+           return this;
+         });
+         console.log('images', $.makeArray(images));
+         img2.sort(function(img){
+           //var img = $(this);
+           var area = img.height * img.width;
+           return area;
+         });
+         console.log('images', img2);
+         
+         if(img2){
+           data.images = img2;
+           //var large_image = img2.pop();
+           data.large_image = img2[img2.length - 1];
+         }
+
+         console.log('tapestry-meta', data);
+         //console.log('tapestry-meta', JSON.stringify(data) );
+         sendMetaData(data);
+     }, 1000);
 });
 
 function sendMetaData(data, callback, error){
