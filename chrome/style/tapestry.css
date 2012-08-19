@@ -19,3 +19,7 @@
 .brickImage img {
   min-width: 300px;
 }
+
+.container {
+  width: 1260px;
+}
