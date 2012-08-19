@@ -19,6 +19,7 @@
 
 .ogBrick:hover .detail{
   height: 4em;
+  margin-bottom: 20px;
 }
 
 .brickImage img {
@@ -27,4 +28,8 @@
 
 .container {
   width: 1260px;
+}
+
+.hidden-blockquote {
+  visibility: hidden;
 }
