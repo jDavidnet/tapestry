@@ -2,5 +2,8 @@
   display: inline-block;
   width:278px;
   overflow: hidden;
-  
+  border: 1px solid #CCCCCC;
+  padding: 3px;
+  font: 11px/1.4em Arial, sans-serif;
+ 
 }
