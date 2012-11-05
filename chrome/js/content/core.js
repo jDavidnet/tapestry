@@ -61,10 +61,10 @@ $(document).ready(function(){
            return this;
          });
          console.log('images', $.makeArray(images));
-         img2.sort(function(img){
-           //var img = $(this);
-           var area = img.height * img.width;
-           return area;
+         img2.sort(function(a, b) {
+           var dimA = a.height * a.width;
+           var dimB = b.height * b.width;
+           return dimA - dimB;
          });
          console.log('images', img2);
          
